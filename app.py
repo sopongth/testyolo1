@@ -10,6 +10,7 @@ st.title("ตรวจจับวัตถุ")
 class VideoProcessor:  
     def recv(self, frame):
         img = frame.to_ndarray(format="bgr24")
+        img = img[::-1,:,:]
         #--------------------------------------------------
         pred_image, obj_box = yolo.predictions(img)
         #--------------------------------------------------
